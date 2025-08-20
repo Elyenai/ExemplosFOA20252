@@ -31,4 +31,4 @@ else if (salario >= 4688.85m && salario < 5830.85m)
 else if (salario >= 5830.85m)
     salarioComDesconto = salario - ((salario * 0.275m) - 908.73m);
 
-Console.WriteLine($"O seu salário após o desconto do IRPF será: {salarioComDesconto}");
+Console.WriteLine($"O seu salário após o desconto do IRPF será: {salarioComDesconto:C2}");
