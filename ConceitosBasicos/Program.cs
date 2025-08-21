@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.Design;
-
+﻿/*using System.ComponentModel.Design;
+*
 byte idade;
 string nome;
 
@@ -43,4 +43,14 @@ catch (Exception e)
 {
     Console.WriteLine("Ocorreu um erro. Entre em contato com o suporte técnico.");
     Console.WriteLine(e.ToString());
-}
+}*/
+
+using ConceitosBasicos.uteis;
+
+SomaDoisNumeros somaDoisNumeros = new SomaDoisNumeros();
+int result;
+result = somaDoisNumeros.Somar(20, 5);
+Console.WriteLine(result);
+
+double milimetros = MetrosMilimetros.Converter(0.6);
+Console.WriteLine(milimetros);
