@@ -47,10 +47,64 @@ catch (Exception e)
 
 using ConceitosBasicos.uteis;
 
-SomaDoisNumeros somaDoisNumeros = new SomaDoisNumeros();
-int result;
-result = somaDoisNumeros.Somar(20, 5);
-Console.WriteLine(result);
+string opcao = "";
+while (opcao != "0")
+{
+    Console.WriteLine("O que você quer fazer ?");
+    Console.WriteLine("[0] Sair");
+    Console.WriteLine("[1] Somar dois números");
+    Console.WriteLine("[2] Transformar metros em milímetros");
+    Console.WriteLine("[3] Calcular aumento de salário");
+    opcao = Console.ReadLine();
+    switch (opcao)
+    {
+        case "0":
+            Console.WriteLine("Você saiu");
+            break;
+        case "1":
+            Console.WriteLine("Você escolheu somar dois números");
 
-double milimetros = MetrosMilimetros.Converter(0.6);
-Console.WriteLine(milimetros);
+            SomaDoisNumeros somaDoisNumeros = new SomaDoisNumeros();
+
+            Console.WriteLine("Digíte o primeiro número: ");
+            int n1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Digíte o segundo número: ");
+            int n2 = Convert.ToInt32(Console.ReadLine());
+            int result;
+            result = somaDoisNumeros.Somar(n1, n2);
+            Console.WriteLine($"A Soma de {n1} e {n2} é {result}");
+
+            break;
+        case "2":
+            Console.WriteLine("Você escolheu transformar metros em milímetros");
+
+            MetrosMilimetros metrosMilimetros = new MetrosMilimetros();
+
+            Console.WriteLine("Digite o número em metros para que seja convertido mara milímetros: ");
+            double metros = Convert.ToDouble(Console.ReadLine());
+            double milimetros = MetrosMilimetros.Converter(metros);
+            Console.WriteLine($"O resultado da conversão é {milimetros}");
+
+            break;
+        case "3":
+            Console.WriteLine("Você escolheu a opção calcular o aumento do salário");
+
+            CalculaAumento calculaAumento = new CalculaAumento();
+
+            Console.Write("Informe seu salário: ");
+            decimal salario = Convert.ToDecimal(Console.ReadLine());
+            Console.WriteLine("Informe o percentual de aumento: ");
+            decimal percentual = Convert.ToDecimal(Console.ReadLine());
+
+            decimal salarioComAumento = calculaAumento.Calcular(salario, percentual);
+            Console.WriteLine($"Para o salário {salario} e percentual {percentual}, o valor do salário com aumento será {salarioComAumento}");
+
+            break;
+        default:
+            Console.WriteLine("Opção inválida");
+            break;
+    }
+}
+
+
+Console.WriteLine("Programa finalizado");
